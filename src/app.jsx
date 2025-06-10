@@ -1,10 +1,10 @@
 // Ejemplo en App.jsx
 import React from "react";
-import  ProductProvider  from "./comps/hooks/productContext.jsx";
-import Body from "./comps/body.jsx";
-import Header from "./comps/Header.jsx";
-import Footer from "./comps/footer.jsx";
-import './App.css';
+import  ProductProvider  from "./features/landing/hooks/productContext.jsx";
+import Body from "./features/landing/pages/body.jsx";
+import Header from "./features/landing/pages/Header.jsx";
+import Footer from "./features/landing/pages/footer.jsx";
+import './shared/styles/App.css';
 
 
 export default function App() {
