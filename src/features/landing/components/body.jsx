@@ -1,6 +1,6 @@
 import React from "react";
 import InformacionProductos from "../hooks/informacionProductos.jsx";
-import CarruselProductos from "../../landing/components/carrusel.jsx";
+import CarruselProductos from "./carrusel.jsx";
 
 export default function Body() {
   return (
