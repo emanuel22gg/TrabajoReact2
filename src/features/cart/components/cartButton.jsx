@@ -6,6 +6,7 @@ export const CartButton = () => {
 
     return (
         <button 
+            type='button'
             className="btn btn-outline-light position-relative me-3"
             onClick={toggleCart}
         >

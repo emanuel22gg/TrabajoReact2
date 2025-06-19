@@ -12,7 +12,7 @@ export default function InformacionProductos() {
     <div className="row g-4">
       {productos.map((prod) => (
         <div className="col-md-4" key={prod.id}>
-          <Products {...prod} />
+          <Products {...prod}/>
         </div>
       ))}
     </div>

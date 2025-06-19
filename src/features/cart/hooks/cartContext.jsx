@@ -22,23 +22,18 @@ const initialState = {
 function cartReducer(state, action) {
     switch (action.type) {
         case CART_ACTIONS.ADD_ITEM: {
-            // Buscar si el producto ya existe
             const existingItem = state.items.find(item => item.id === action.payload.id);
-            
             let newItems;
+            const addQty = action.payload.quantity || 1;
             if (existingItem) {
-                // Si existe, aumentar cantidad
                 newItems = state.items.map(item =>
                     item.id === action.payload.id
-                        ? { ...item, quantity: item.quantity + 1 }
+                        ? { ...item, quantity: item.quantity + addQty }
                         : item
                 );
             } else {
-                // Si no existe, agregarlo
-                newItems = [...state.items, { ...action.payload, quantity: 1 }];
+                newItems = [...state.items, { ...action.payload, quantity: addQty }];
             }
-
-            // Calcular nuevo total y cantidad
             const total = newItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             const itemCount = newItems.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -48,7 +43,7 @@ function cartReducer(state, action) {
                 total: parseFloat(total.toFixed(2)),
                 itemCount
             };
-        }
+}
 
         case CART_ACTIONS.REMOVE_ITEM: {
             const newItems = state.items.filter(item => item.id !== action.payload);
@@ -148,16 +143,8 @@ export const CartProvider = ({ children }) => {
         // Mostrar notificación
         showNotification(`${product.title} agregado al carrito`, 'success', 2000);
         
-        // Auto-abrir carrito por 2 segundos
-        if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current);
-        }
-        
         if (!state.isOpen) {
             dispatch({ type: CART_ACTIONS.TOGGLE_CART });
-            timeoutRef.current = setTimeout(() => {
-                dispatch({ type: CART_ACTIONS.TOGGLE_CART });
-            }, 2000);
         }
     };
 

@@ -1,9 +1,18 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import { useCart } from "../../cart/hooks/cartContext";
 
 
 export default function Products({ id, title, price, description, image }) {
-    const [count, setCount] = useState(0);
+    const { addToCart } = useCart();
+    const truncateText = (text, maxLength = 100) => {
+        if (!text) return 'Sin descripción';
+        return text.length > maxLength
+            ? text.substring(0, maxLength) + '...'
+            : text;
+    };
+
+    const [count, setCount] = useState(1);
     const [statusBtn, setStatusBtn] = useState(false);
 
     const aumentar = () => {
@@ -19,20 +28,21 @@ export default function Products({ id, title, price, description, image }) {
     };
 
     const agregarAlCarrito = () => {
-        if (count > 0) {
-            setStatusBtn(true);
-            Swal.fire({
-                icon: "success",
-                title: "¡Agregado al carrito!",
-                text: `Agregaste ${count} "${title}" al carrito.`,
-                confirmButtonText: "Confirmar",
-                allowOutsideClick: false,
-            }).then(() => {
-                setStatusBtn(false);
-                setCount(0);
-            });
-        }
-    };
+        const product = {
+            id,
+            title,
+            price,
+            image,
+            description,
+            quantity: count
+        };
+        addToCart(product);
+        setStatusBtn(true);
+        setTimeout(() => {
+            setStatusBtn(false);
+            setCount(1);
+        }, 1000);
+};
 
     return (
         <div className="card h-100">

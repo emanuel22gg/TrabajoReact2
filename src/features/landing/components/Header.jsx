@@ -1,5 +1,7 @@
 import React from 'react';
 import Logo from "../../../assets/img/logo.png"; 
+import { CartButton } from '../../cart/components/CartButton';
+
 
 export default function Header() {
   return (
@@ -13,6 +15,7 @@ export default function Header() {
           <a href="#" className="text-white me-3 text-decoration-none">Inicio</a>
           <a href="#" className="text-white me-3 text-decoration-none">Productos</a>
           <a href="#" className="text-white text-decoration-none">Contacto</a>
+          <CartButton />
         </nav>
       </div>
     </header>
