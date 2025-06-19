@@ -55,7 +55,7 @@ export default function Products({ id, title, price, description, image }) {
                     <button className="btn btn-outline-secondary btn-sm" onClick={disminuir} disabled={count === 0}>-</button>
                     <span className="mx-2">{count}</span>
                     <button className="btn btn-outline-secondary btn-sm" onClick={aumentar} disabled={count === 10}>+</button>
-                    <button className="btn btn-outline-danger btn-sm ms-2" onClick={anular} disabled={count === 0}>Anular</button>
+                    <button className="btn btn-outline-danger btn-sm ms-2" onClick={anular} disabled={count === 0}>X</button>
                 </div>
                 <button
                     className="btn btn-primary w-100 mt-auto"

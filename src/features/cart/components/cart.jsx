@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCart } from '../hooks/cartContext';
+import "../../../shared/styles/carrito.css"
 
 export const Cart = () => {
     const { 
