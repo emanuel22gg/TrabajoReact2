@@ -43,7 +43,7 @@ function cartReducer(state, action) {
                 total: parseFloat(total.toFixed(2)),
                 itemCount
             };
-}
+        }
 
         case CART_ACTIONS.REMOVE_ITEM: {
             const newItems = state.items.filter(item => item.id !== action.payload);
@@ -156,9 +156,11 @@ export const CartProvider = ({ children }) => {
         dispatch({ type: CART_ACTIONS.UPDATE_QUANTITY, payload: { id: productId, quantity } });
     };
 
-    const clearCart = () => {
+    const clearCart = (showInfo=true) => {
         dispatch({ type: CART_ACTIONS.CLEAR_CART });
-        showNotification('Carrito vaciado', 'info', 1500);
+        if (showInfo) {
+            showNotification('Carrito vaciado', 'info', 1500);
+        }
     };
 
     const toggleCart = () => {

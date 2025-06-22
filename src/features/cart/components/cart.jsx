@@ -1,8 +1,11 @@
 import React from 'react';
 import { useCart } from '../hooks/cartContext';
-import "../../../shared/styles/carrito.css"
+import "../../../shared/styles/carrito.css";
+import { useNotification } from '../hooks/useNotification';
+
 
 export const Cart = () => {
+    const { showNotification } = useNotification();
     const { 
         items, 
         isOpen, 
@@ -14,6 +17,11 @@ export const Cart = () => {
         toggleCart,
         cartRef 
     } = useCart();
+
+    const Comprar = () => {
+        showNotification('¡Compra realizada con éxito!', 'success', 2500);
+        clearCart(false);
+    };
 
     // Si el carrito está cerrado, no renderizar nada
     if (!isOpen) return null;
@@ -71,7 +79,7 @@ export const Cart = () => {
                                         <i className="bi bi-trash"></i>
                                         Vaciar
                                     </button>
-                                    <button className="btn btn-primary">
+                                    <button className="btn btn-primary" onClick={Comprar}>
                                         <i className="bi bi-credit-card"></i>
                                         Comprar
                                     </button>
