@@ -1,32 +1,37 @@
 import React from "react";
 import InformacionProductos from "../hooks/informacionProductos.jsx";
 import CarruselProductos from "./carrusel.jsx";
+import * as scroll from 'react-scroll';
+const { Element } = scroll;
+
 
 export default function Body() {
   return (
     <main className="container py-5">
-
+      <Element name="inicio" className="mb-5">
       <section className="mb-5">
         <h2 className="mb-4 text-center">Bienvenido a EmaO</h2>
         <p className="mb-0 text-center">
           En EmaO nos preocupamos por ofrecer productos de alta calidad al mejor precio. Nuestros artículos son seleccionados cuidadosamente para satisfacer a nuestros clientes.
         </p>
       </section>
+      </Element>
 
       <section className="mb-5">
         <CarruselProductos />
       </section>
 
       <hr className="my-5" />
-
+      <Element name="productos" className="mb-5"> 
       <section className="mb-5">
         <h3 className="mb-4 text-center">Nuestros Productos</h3>
         <InformacionProductos />
       </section>
+      </Element>
 
       <hr className="my-5" />
 
-
+      <Element name="dudas" className="mb-5">
       <section className="my-5">
         <h3 className="mb-4 text-center">Preguntas Frecuentes</h3>
         <div className="accordion" id="faqAccordion">
@@ -80,6 +85,7 @@ export default function Body() {
           </div>
         </div>
       </section>
+      </Element>
 
       <hr className="my-5" />
 
