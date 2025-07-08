@@ -1,6 +1,5 @@
 /* Fondo igual que la landing */
-.login-container,
-.dashboard-container {
+.login-container {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -9,8 +8,7 @@
 }
 
 /* Tarjeta igual que la landing */
-.login-form,
-.dashboard-content {
+.login-form {
   background: #fff;
   border-radius: 1rem;
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
@@ -25,16 +23,14 @@
   100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-.login-form h2,
-.dashboard-content h2 {
+.login-form h2{
   margin-bottom: 1.5rem;
   font-weight: 800;
   letter-spacing: 1px;
   color: #0d6efd; /* Azul landing/header */
 }
 
-.login-button,
-.logout-button {
+.login-button {
   width: 100%;
   margin-top: 1.2rem;
   background: linear-gradient(90deg, #0d6efd 0%, #0a58ca 100%);

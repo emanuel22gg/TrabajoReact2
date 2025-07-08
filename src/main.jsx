@@ -18,6 +18,7 @@ function PrivateRoute({ children }) {
   return isAuthenticated ? children : <Navigate to="/login" />;
 }
 
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>

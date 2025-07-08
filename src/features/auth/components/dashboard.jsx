@@ -1,6 +1,7 @@
 import '../../../shared/styles/dashboard-login.css';
 import { useAuth } from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
+import ProductsPage from './crudDashboard';
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
@@ -28,6 +29,7 @@ const Dashboard = () => {
         <button className="logout-button btn" onClick={handleLogout}>
           Cerrar Sesión
         </button>
+        <ProductsPage />
       </div>
     </div>
   );
