@@ -4,6 +4,8 @@
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #212529;
+  width: 100vw !important; /* Forzar ancho completo de la ventana */
+  max-width: 100% !important;
 }
 
 .dashboard-header {
@@ -68,6 +70,8 @@
 
 .table-card {
   border-radius: 8px;
+  width: 100% !important; /* Forzar ancho completo */
+  max-width: 100% !important;
 }
 
 .dashboard-table-container {
@@ -76,7 +80,7 @@
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 15px;
+  padding: 0 !important; /* Reducido para evitar scroll y ampliar espacio */
   margin-top: 10px;
   margin-bottom: 10px;
 }
